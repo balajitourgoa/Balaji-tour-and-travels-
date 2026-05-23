@@ -5,108 +5,295 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balaji Taxi Service - Goa | Vinod Kumar</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: auto; }
-        h1 { text-align: center; color: #1a5f7a; margin-bottom: 10px; }
-        .tagline { text-align: center; color: #555; margin-bottom: 30px; }
-        .contact-bar { background: #1a5f7a; color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 30px; }
-        .btn { display: inline-block; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; margin: 5px; }
-        .btn-call { background: #28a745; color: white; }
-        .btn-whatsapp { background: #25D366; color: white; }
-        .card { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 25px; overflow: hidden; display: flex; flex-wrap: wrap; }
-        .card img { width: 100%; max-width: 350px; height: 220px; object-fit: cover; }
-        .details { padding: 20px; flex: 1; min-width: 300px; }
-        .details h2 { margin: 0 0 10px 0; color: #1a5f7a; }
-        .details h3 { margin: 15px 0 8px 0; color: #333; font-size: 16px; }
-        .details ul { margin: 0; padding-left: 20px; }
-        .details li { margin-bottom: 6px; color: #444; }
-        .badge { background: #1a5f7a; color: white; padding: 4px 10px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 10px; }
-        .notes { background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #ffc107; }
-        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
-        @media (max-width: 768px) { .card { flex-direction: column; } .card img { max-width: 100%; } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f5ff; color: #333; }
+        
+        /* Header */
+        .header { background: white; padding: 12px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; color: #5b4bdb; }
+        .logo-icon { font-size: 32px; }
+        .menu { font-size: 24px; color: #5b4bdb; cursor: pointer; }
+
+        /* Hero */
+        .hero { padding: 50px 20px; text-align: center; background: linear-gradient(135deg, #f8f5ff 0%, #fff 100%); }
+        .hero h1 { font-size: 36px; margin-bottom: 12px; line-height: 1.2; }
+        .hero h1 .orange { color: #ff6b35; }
+        .hero h1 .blue { color: #5b4bdb; }
+        .hero h1 .green { color: #28a745; }
+        .hero p { color: #666; margin: 15px auto 25px; max-width: 600px; line-height: 1.6; font-size: 15px; }
+        .btn { padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: 700; display: inline-block; margin: 5px; font-size: 15px; }
+        .btn-primary { background: linear-gradient(90deg, #ff8c42, #ff6b35); color: white; box-shadow: 0 4px 15px rgba(255,107,53,0.3); }
+        .btn-secondary { background: white; color: #5b4bdb; border: 2px solid #5b4bdb; }
+
+        /* Section */
+        .section { padding: 30px 15px; max-width: 1200px; margin: auto; }
+        .section-title { font-size: 30px; color: #5b4bdb; text-align: center; margin-bottom: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .section-subtitle { text-align: center; color: #666; margin-bottom: 30px; font-size: 15px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        /* Fleet Gallery Cards */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .fleet-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(91,75,219,0.1); }
+        .fleet-img { width: 100%; height: 220px; background: linear-gradient(135deg, #e3f2fd 0%, #d1ecf1 100%); display: flex; align-items: center; justify-content: center; font-size: 80px; }
+        .fleet-content { padding: 20px; }
+        .fleet-tag { color: #5b4bdb; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+        .fleet-content h4 { font-size: 18px; margin-bottom: 8px; color: #333; }
+        .fleet-content p { font-size: 14px; color: #666; line-height: 1.5; }
+        .wifi-badge { background: #28a745; color: white; padding: 4px 10px; border-radius: 15px; font-size: 11px; display: inline-block; margin-top: 8px; font-weight: 600; }
+
+        /* Tour Package Cards */
+        .tour-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .tour-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(91,75,219,0.1); }
+        .tour-header { padding: 25px 20px; color: white; position: relative; }
+        .tour-header.blue { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .tour-header.green { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .tour-header.orange { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .tour-header.teal { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .tour-icon { font-size: 32px; margin-bottom: 10px; }
+        .tour-price { position: absolute; top: 20px; right: 20px; font-size: 28px; font-weight: 800; }
+        .tour-hours { position: absolute; top: 55px; right: 20px; font-size: 13px; opacity: 0.9; }
+        .tour-header h3 { font-size: 22px; margin-top: 10px; }
+        .tour-body { padding: 20px; }
+        .tour-body p { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
+        .tour-destinations { margin-bottom: 20px; }
+        .tour-destinations h5 { color: #5b4bdb; font-size: 15px; margin-bottom: 10px; }
+        .tour-destinations ul { list-style: none; }
+        .tour-destinations li { padding: 6px 0; color: #555; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+        .tour-destinations li:before { content: "•"; color: #5b4bdb; font-size: 20px; }
+        .tour-btn { width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); color: white; padding: 14px; border-radius: 12px; text-decoration: none; font-weight: 700; display: block; text-align: center; margin-bottom: 10px; }
+        .tour-btn.green { background: linear-gradient(90deg, #43e97b, #38f9d7); }
+        .tour-btn.orange { background: linear-gradient(90deg, #fa709a, #fee140); }
+        .tour-btn.teal { background: linear-gradient(90deg, #4facfe, #00f2fe); }
+        .details-btn { width: 100%; background: white; color: #5b4bdb; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 600; display: block; text-align: center; border: 2px solid #5b4bdb; }
+
+        /* Rate Table */
+        .rate-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(91,75,219,0.1); }
+        .rate-card h3 { color: #5b4bdb; margin-bottom: 15px; font-size: 22px; display: flex; align-items: center; gap: 10px; }
+        .car-badge { background: #5b4bdb; color: white; padding: 5px 14px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 12px; font-weight: 600; }
+        .rate-section { margin: 18px 0; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; }
+        .rate-section:last-child { border-bottom: none; }
+        .rate-section h4 { color: #333; font-size: 16px; margin-bottom: 10px; font-weight: 700; }
+        .rate-section ul { list-style: none; }
+        .rate-section li { padding: 8px 0; color: #555; font-size: 14px; display: flex; justify-content: space-between; }
+        
+        /* Floating Buttons */
+        .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 99; }
+        .float-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: transform 0.2s; }
+        .float-btn:hover { transform: scale(1.1); }
+        .whatsapp { background: #25D366; color: white; }
+        .call { background: #5b4bdb; color: white; }
+
+        .notes { background: #fff3cd; padding: 18px; border-radius: 15px; margin: 25px 0; border-left: 4px solid #ffc107; font-size: 14px; line-height: 1.6; }
+        .footer { background: #5b4bdb; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
+        .footer h3 { font-size: 24px; margin-bottom: 10px; }
+        .footer p { margin: 8px 0; opacity: 0.9; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🚖 BALAJI TAXI SERVICE - GOA</h1>
-        <p class="tagline">Vinod Kumar | Reliable | Affordable | 24x7 Available</p>
-
-        <div class="contact-bar">
-            <strong>Book Now - Call / WhatsApp</strong><br>
-            <a href="tel:+9172943023" class="btn btn-call">📞 9172943023</a>
-            <a href="https://wa.me/9172943023" class="btn btn-whatsapp">💬 WhatsApp</a>
-            <a href="tel:+917558719172" class="btn btn-call">📞 7558719172</a>
-            <a href="https://wa.me/917558719172" class="btn btn-whatsapp">💬 WhatsApp</a>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <span class="logo-icon">🚖</span>
+            <span>BALAJI TAXI SERVICE</span>
         </div>
+        <div class="menu">☰</div>
+    </div>
 
-        <!-- SEDAN - Dzire / Baleno -->
-        <div class="card">
-            <img src="dzire.jpg" alt="Sedan Dzire Baleno Taxi">
-            <div class="details">
-                <span class="badge">4+1 Seater</span>
-                <h2>Sedan - Dzire / Baleno</h2>
-                <h3>Tour Package:</h3>
-                <ul>
-                    <li><strong>8 Hrs / 80 Kms: ₹2700</strong></li>
-                </ul>
-                <h3>Dabolim Airport Transfer:</h3>
-                <ul>
-                    <li>→ Calangute / Baga / Anjuna / Arpora / Vagator: <strong>₹1350</strong></li>
-                    <li>→ Siolim / Morjim / Arambol: <strong>₹1650</strong></li>
-                </ul>
+    <!-- Hero -->
+    <div class="hero">
+        <h1>
+            <span class="orange">Your Trusted</span><br>
+            <span class="blue">Goa Cab</span> <span class="green">Service</span>
+        </h1>
+        <p>Experience the authentic spirit of Goa with Vinod Kumar. From pristine beaches to historic churches, we'll take you everywhere with a smile. WiFi Free 📶 | 24x7 Available</p>
+        <a href="tel:+9172943023" class="btn btn-primary">Book Your Ride 🚖</a>
+        <a href="#rates" class="btn btn-secondary">View Rates 🌴</a>
+    </div>
+
+    <!-- Our Fleet Gallery -->
+    <div class="section">
+        <h2 class="section-title">🚗 Our Fleet Gallery 📸</h2>
+        <p class="section-subtitle">Take a look at our premium taxi fleet and see why customers trust us for their Goa travels</p>
+        
+        <div class="gallery-grid">
+            <div class="fleet-card">
+                <div class="fleet-img">🚗</div>
+                <div class="fleet-content">
+                    <p class="fleet-tag">Premium Fleet</p>
+                    <h4>Sedan - Dzire / Baleno</h4>
+                    <p>Comfortable 4+1 seater perfect for families & couples. AC, clean & sanitized.</p>
+                    <span class="wifi-badge">WiFi Free 📶</span>
+                </div>
             </div>
-        </div>
 
-        <!-- SUV - Ertiga -->
-        <div class="card">
-            <img src="ertiga.jpg" alt="Ertiga Taxi">
-            <div class="details">
-                <span class="badge">6+1 Seater</span>
-                <h2>SUV - Maruti Ertiga</h2>
-                <h3>Tour Package:</h3>
-                <ul>
-                    <li><strong>4 Hrs / 40 Km: ₹2200</strong></li>
-                    <li><strong>8 Hrs / 80 Km: ₹3000</strong></li>
-                    <li>Extra: ₹20 per km | ₹200 per ghanta</li>
-                    <li>Night Charge after 11 o'clock: ₹500</li>
-                </ul>
-                <h3>Dabolim Airport Transfer:</h3>
-                <ul>
-                    <li>→ Calangute / Baga / Anjuna / Arpora: <strong>₹1650</strong></li>
-                    <li>→ Siolim / Morjim / Arambol: <strong>₹2250</strong></li>
-                </ul>
+            <div class="fleet-card">
+                <div class="fleet-img">🚙</div>
+                <div class="fleet-content">
+                    <p class="fleet-tag">Family Choice</p>
+                    <h4>SUV - Maruti Ertiga</h4>
+                    <p>Spacious 6+1 seater ideal for groups. Extra luggage space for your Goa shopping.</p>
+                    <span class="wifi-badge">WiFi Free 📶</span>
+                </div>
             </div>
-        </div>
 
-        <!-- MUV - Innova / Crysta -->
-        <div class="card">
-            <img src="innova.jpg" alt="Innova Crysta Taxi">
-            <div class="details">
-                <span class="badge">6+1 Seater Premium</span>
-                <h2>MUV - Innova / Crysta</h2>
-                <h3>Tour Package:</h3>
-                <ul>
-                    <li><strong>4 Hours / 40 Km: ₹2500</strong></li>
-                    <li><strong>8 Hours / 80 Km: ₹3500</strong></li>
-                    <li>Extra: ₹25 per km | ₹250 per hour</li>
-                    <li>Night Charge after 11 o'clock: ₹500</li>
-                </ul>
-                <h3>Dabolim Airport Transfer:</h3>
-                <ul>
-                    <li>→ Calangute / Baga / Anjuna / Vagator: <strong>₹2450</strong></li>
-                    <li>→ Siolim / Morjim / Arambol: <strong>₹3250</strong></li>
-                </ul>
+            <div class="fleet-card">
+                <div class="fleet-img">🌙</div>
+                <div class="fleet-content">
+                    <p class="fleet-tag">Night Service</p>
+                    <h4>24x7 Available</h4>
+                    <p>Late night airport pickup/drop? No problem. Safe & reliable service always.</p>
+                    <span class="wifi-badge">WiFi Free 📶</span>
+                </div>
             </div>
-        </div>
 
-        <div class="notes">
-            <strong>Important:</strong> All rates inclusive of Driver + Fuel. Toll Tax, Parking & Interstate Permit Extra. Mopa Airport rates same as Dabolim Airport.
-        </div>
-
-        <div class="footer">
-            <strong>Vinod Kumar | 📞 9172943023 | 📞 7558719172</strong><br>
-            WhatsApp Available 24x7 | © 2026 Balaji Taxi Service Goa
+            <div class="fleet-card">
+                <div class="fleet-img">🏛️</div>
+                <div class="fleet-content">
+                    <p class="fleet-tag">Temple Tours</p>
+                    <h4>Innova / Crysta Premium</h4>
+                    <p>Luxury 6+1 seater for heritage & temple tours. Best comfort for long rides.</p>
+                    <span class="wifi-badge">WiFi Free 📶</span>
+                </div>
+            </div>
         </div>
     </div>
-</body>
-</html>
+
+    <!-- Tour Packages -->
+    <div class="section">
+        <h2 class="section-title">🌴 Popular Tour Packages</h2>
+        <p class="section-subtitle">Choose from our curated Goa experiences with fixed rates</p>
+
+        <div class="tour-grid">
+            <div class="tour-card">
+                <div class="tour-header blue">
+                    <div class="tour-icon">🏛️</div>
+                    <div class="tour-price">₹3000</div>
+                    <div class="tour-hours">Half Day (5 Hours)</div>
+                    <h3>Goa Heritage Tour</h3>
+                </div>
+                <div class="tour-body">
+                    <p>Explore Goa's rich cultural heritage, including UNESCO world heritage sites and historic churches.</p>
+                    <div class="tour-destinations">
+                        <h5>Destinations:</h5>
+                        <ul>
+                            <li>Old Goa Churches</li>
+                            <li>Shanta Durga Temple</li>
+                            <li>Mangueshi Temple</li>
+                            <li>+2 more</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+9172943023" class="tour-btn">📞 Book Now</a>
+                    <a href="#rates" class="details-btn">Details</a>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-header green">
+                    <div class="tour-icon">💧</div>
+                    <div class="tour-price">₹5000</div>
+                    <div class="tour-hours">Full Day (10 Hours)</div>
+                    <h3>Dudhsagar Waterfall Trip</h3>
+                </div>
+                <div class="tour-body">
+                    <p>Visit one of India's tallest waterfalls, take a jeep safari through the jungle and enjoy a spice plantation tour.</p>
+                    <div class="tour-destinations">
+                        <h5>Destinations:</h5>
+                        <ul>
+                            <li>Dudhsagar Waterfalls</li>
+                            <li>Bhagwan Mahavir Wildlife Sanctuary</li>
+                            <li>Mollem National Park</li>
+                            <li>+1 more</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+9172943023" class="tour-btn green">📞 Book Now</a>
+                    <a href="#rates" class="details-btn">Details</a>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-header orange">
+                    <div class="tour-icon">🍛</div>
+                    <div class="tour-price">₹3200</div>
+                    <div class="tour-hours">Half Day (6 Hours)</div>
+                    <h3>Goan Cuisine & Culture Tour</h3>
+                </div>
+                <div class="tour-body">
+                    <p>Immerse yourself in the local cuisine and culture, taste authentic Goan food and drinks.</p>
+                    <div class="tour-destinations">
+                        <h5>Destinations:</h5>
+                        <ul>
+                            <li>Local Markets</li>
+                            <li>Spice Farm</li>
+                            <li>Goan Restaurant</li>
+                            <li>+2 more</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+9172943023" class="tour-btn orange">📞 Book Now</a>
+                    <a href="#rates" class="details-btn">Details</a>
+                </div>
+            </div>
+
+            <div class="tour-card">
+                <div class="tour-header teal">
+                    <div class="tour-icon">🏝️</div>
+                    <div class="tour-price">₹3800</div>
+                    <div class="tour-hours">Full Day (7 Hours)</div>
+                    <h3>Island Exploration Tour</h3>
+                </div>
+                <div class="tour-body">
+                    <p>Explore the beautiful islands around Goa, enjoy snorkeling, dolphin watching and island hopping.</p>
+                    <div class="tour-destinations">
+                        <h5>Destinations:</h5>
+                        <ul>
+                            <li>Grande Island</li>
+                            <li>Bat Island</li>
+                            <li>Chorao Island</li>
+                            <li>+2 more</li>
+                        </ul>
+                    </div>
+                    <a href="tel:+9172943023" class="tour-btn teal">📞 Book Now</a>
+                    <a href="#rates" class="details-btn">Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rates Section -->
+    <div class="section" id="rates">
+        <h2 class="section-title">📋 Our Taxi Rates</h2>
+        <p class="section-subtitle">Transparent pricing for all your Goa travel needs</p>
+        
+        <!-- Sedan -->
+        <div class="rate-card">
+            <span class="car-badge">4+1 Seater | WiFi Free 📶</span>
+            <h3>🚗 Sedan - Dzire / Baleno</h3>
+            <div class="rate-section">
+                <h4>Tour Package:</h4>
+                <ul><li><span>8 Hrs / 80 Kms</span> <strong>₹2700</strong></li></ul>
+            </div>
+            <div class="rate-section">
+                <h4>Dabolim Airport Transfer:</h4>
+                <ul>
+                    <li><span>→ Calangute / Baga / Anjuna / Arpora / Vagator</span> <strong>₹1350</strong></li>
+                    <li><span>→ Siolim / Morjim / Arambol</span> <strong>₹1650</strong></li>
+                </ul>
+            </div>
+            <div class="rate-section">
+                <h4>Mopa Airport Transfer:</h4>
+                <ul>
+                    <li><span>→ Vasco / Dabolim Airport</span> <strong>₹2450</strong></li>
+                    <li><span>→ Colva / Benaulim / Varca / Cavelossim</span> <strong>₹2450</strong></li>
+                    <li><span>→ Palolem / Agonda Beach</span> <strong>₹3250</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ertiga -->
+        <div class="rate-card">
+            <span class="car-badge">6+1 Seater | WiFi Free 📶</span>
+            <h3>🚙 SUV - Maruti Ertiga</h3>
+            <div class="rate-section">
+                <h4>Tour Package:</h4>
+                <ul>
+                    <li><span>4 Hrs / 40 Km</span> <strong>₹2200</strong></li>
+                    <li><span>8 Hrs / 80 Km</span> <strong>₹3000</strong></li>
+                    <li><span>Extra</span> <strong>₹20/km | ₹200/hr
