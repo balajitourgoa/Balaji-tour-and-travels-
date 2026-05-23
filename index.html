@@ -3,268 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balaji Taxi Service - Goa | Vinod Kumar</title>
+    <title>Balaji Taxi Service - Goa | Vinod Kumar | 9172943023</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f5ff; color: #333; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            background: linear-gradient(180deg, #e0f2f1 0%, #b2dfdb 50%, #80cbc4 100%);
+            background-attachment: fixed;
+            color: #333; 
+        }
         
-        /* Header */
-        .header { background: white; padding: 12px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; color: #5b4bdb; }
-        .logo-icon { font-size: 32px; }
-        .menu { font-size: 24px; color: #5b4bdb; cursor: pointer; }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="35" opacity="0.05">🌊</text></svg>');
+            background-size: 200px;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-        /* Hero */
-        .hero { padding: 50px 20px; text-align: center; background: linear-gradient(135deg, #f8f5ff 0%, #fff 100%); }
-        .hero h1 { font-size: 36px; margin-bottom: 12px; line-height: 1.2; }
-        .hero h1 .orange { color: #ff6b35; }
-        .hero h1 .blue { color: #5b4bdb; }
-        .hero h1 .green { color: #28a745; }
-        .hero p { color: #666; margin: 15px auto 25px; max-width: 600px; line-height: 1.6; font-size: 15px; }
-        .btn { padding: 14px 28px; border-radius: 30px; text-decoration: none; font-weight: 700; display: inline-block; margin: 5px; font-size: 15px; }
-        .btn-primary { background: linear-gradient(90deg, #ff8c42, #ff6b35); color: white; box-shadow: 0 4px 15px rgba(255,107,53,0.3); }
-        .btn-secondary { background: white; color: #5b4bdb; border: 2px solid #5b4bdb; }
+        .header { background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); padding: 15px 20px; box-shadow: 0 3px 20px rgba(0,121,107,0.15); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 800; color: #00695c; }
+        .logo-icon { font-size: 36px; }
+        .call-header { background: #25D366; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 14px; box-shadow: 0 4px 15px rgba(37,211,102,0.3); }
 
-        /* Section */
-        .section { padding: 30px 15px; max-width: 1200px; margin: auto; }
-        .section-title { font-size: 30px; color: #5b4bdb; text-align: center; margin-bottom: 10px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .section-subtitle { text-align: center; color: #666; margin-bottom: 30px; font-size: 15px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero { 
+            padding: 70px 20px 90px; 
+            text-align: center; 
+            background: linear-gradient(135deg, rgba(0,172,193,0.95) 0%, rgba(0,151,167,0.9) 50%, rgba(0,131,143,0.95) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: "🌊 🏖️ 🌴 🌊 🏖️ 🌴";
+            position: absolute;
+            bottom: 15px;
+            left: 0; right: 0;
+            font-size: 45px;
+            opacity: 0.25;
+        }
+        .hero h1 { font-size: 44px; margin-bottom: 18px; line-height: 1.2; font-weight: 900; color: white; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); }
+        .hero h1 .yellow { color: #fff59d; }
+        .hero p { color: #e0f7fa; margin: 20px auto 30px; max-width: 680px; line-height: 1.8; font-size: 17px; font-weight: 500; }
+        .hero-contact { background: rgba(255,255,255,0.3); padding: 18px 30px; border-radius: 25px; display: inline-block; margin: 12px 0; backdrop-filter: blur(15px); border: 2px solid rgba(255,255,255,0.5); }
+        .hero-contact a { color: white; text-decoration: none; font-weight: 800; font-size: 20px; display: block; margin: 8px 0; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+        .btn { padding: 18px 36px; border-radius: 35px; text-decoration: none; font-weight: 700; display: inline-block; margin: 10px; font-size: 17px; transition: all 0.3s; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.25); }
+        .btn-primary { background: white; color: #00695c; box-shadow: 0 6px 25px rgba(0,0,0,0.2); }
+        .btn-secondary { background: rgba(255,255,255,0.25); color: white; border: 3px solid white; backdrop-filter: blur(10px); }
 
-        /* Fleet Gallery Cards */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .fleet-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(91,75,219,0.1); }
-        .fleet-img { width: 100%; height: 220px; background: linear-gradient(135deg, #e3f2fd 0%, #d1ecf1 100%); display: flex; align-items: center; justify-content: center; font-size: 80px; }
-        .fleet-content { padding: 20px; }
-        .fleet-tag { color: #5b4bdb; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
-        .fleet-content h4 { font-size: 18px; margin-bottom: 8px; color: #333; }
-        .fleet-content p { font-size: 14px; color: #666; line-height: 1.5; }
-        .wifi-badge { background: #28a745; color: white; padding: 4px 10px; border-radius: 15px; font-size: 11px; display: inline-block; margin-top: 8px; font-weight: 600; }
+        .section { padding: 50px 20px; max-width: 1350px; margin: auto; }
+        .section-title { font-size: 38px; color: #00695c; text-align: center; margin-bottom: 15px; font-weight: 900; display: flex; align-items: center; justify-content: center; gap: 15px; }
+        .section-subtitle { text-align: center; color: #004d40; margin-bottom: 40px; font-size: 17px; max-width: 800px; margin-left: auto; margin-right: auto; font-weight: 500; line-height: 1.7; }
 
-        /* Tour Package Cards */
-        .tour-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .tour-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(91,75,219,0.1); }
-        .tour-header { padding: 25px 20px; color: white; position: relative; }
-        .tour-header.blue { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .tour-header.green { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-        .tour-header.orange { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-        .tour-header.teal { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-        .tour-icon { font-size: 32px; margin-bottom: 10px; }
-        .tour-price { position: absolute; top: 20px; right: 20px; font-size: 28px; font-weight: 800; }
-        .tour-hours { position: absolute; top: 55px; right: 20px; font-size: 13px; opacity: 0.9; }
-        .tour-header h3 { font-size: 22px; margin-top: 10px; }
-        .tour-body { padding: 20px; }
-        .tour-body p { color: #666; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-        .tour-destinations { margin-bottom: 20px; }
-        .tour-destinations h5 { color: #5b4bdb; font-size: 15px; margin-bottom: 10px; }
-        .tour-destinations ul { list-style: none; }
-        .tour-destinations li { padding: 6px 0; color: #555; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-        .tour-destinations li:before { content: "•"; color: #5b4bdb; font-size: 20px; }
-        .tour-btn { width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); color: white; padding: 14px; border-radius: 12px; text-decoration: none; font-weight: 700; display: block; text-align: center; margin-bottom: 10px; }
-        .tour-btn.green { background: linear-gradient(90deg, #43e97b, #38f9d7); }
-        .tour-btn.orange { background: linear-gradient(90deg, #fa709a, #fee140); }
-        .tour-btn.teal { background: linear-gradient(90deg, #4facfe, #00f2fe); }
-        .details-btn { width: 100%; background: white; color: #5b4bdb; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 600; display: block; text-align: center; border: 2px solid #5b4bdb; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .photo-card { background: white; border-radius: 28px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,105,92,0.15); transition: all 0.4s; border: 3px solid #b2dfdb; }
+        .photo-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 50px rgba(0,105,92,0.25); }
+        .photo-img { width: 100%; height: 260px; object-fit: cover; }
+        .photo-content { padding: 28px; }
+        .photo-tag { color: #00897b; font-size: 14px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .photo-content h3 { font-size: 24px; margin-bottom: 12px; color: #004d40; font-weight: 800; }
+        .photo-price { font-size: 34px; color: #00acc1; font-weight: 900; margin: 12px 0; }
+        .photo-desc { color: #555; font-size: 15px; line-height: 1.7; margin-bottom: 18px; }
+        .photo-features { margin-bottom: 20px; }
+        .photo-features li { padding: 8px 0; color: #444; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+        .photo-features li:before { content: "✓"; color: #00acc1; font-weight: bold; font-size: 18px; }
+        .photo-btn { width: 100%; background: linear-gradient(90deg, #00acc1, #00838f); color: white; padding: 16px; border-radius: 18px; text-decoration: none; font-weight: 700; display: block; text-align: center; font-size: 16px; box-shadow: 0 5px 20px rgba(0,172,193,0.3); }
 
-        /* Rate Table */
-        .rate-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(91,75,219,0.1); }
-        .rate-card h3 { color: #5b4bdb; margin-bottom: 15px; font-size: 22px; display: flex; align-items: center; gap: 10px; }
-        .car-badge { background: #5b4bdb; color: white; padding: 5px 14px; border-radius: 20px; font-size: 12px; display: inline-block; margin-bottom: 12px; font-weight: 600; }
-        .rate-section { margin: 18px 0; padding-bottom: 15px; border-bottom: 1px solid #f0f0f0; }
+        .rate-card { background: white; border-radius: 28px; padding: 35px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,105,92,0.12); border: 3px solid #b2dfdb; }
+        .rate-card h3 { color: #00695c; margin-bottom: 20px; font-size: 26px; display: flex; align-items: center; gap: 15px; font-weight: 800; }
+        .car-badge { background: #00897b; color: white; padding: 8px 18px; border-radius: 25px; font-size: 14px; display: inline-block; margin-bottom: 16px; font-weight: 700; }
+        .wifi-badge { background: #43a047; color: white; padding: 8px 18px; border-radius: 25px; font-size: 14px; display: inline-block; margin-left: 12px; font-weight: 700; }
+        .rate-section { margin: 22px 0; padding-bottom: 20px; border-bottom: 3px solid #e0f2f1; }
         .rate-section:last-child { border-bottom: none; }
-        .rate-section h4 { color: #333; font-size: 16px; margin-bottom: 10px; font-weight: 700; }
+        .rate-section h4 { color: #004d40; font-size: 18px; margin-bottom: 14px; font-weight: 800; }
         .rate-section ul { list-style: none; }
-        .rate-section li { padding: 8px 0; color: #555; font-size: 14px; display: flex; justify-content: space-between; }
+        .rate-section li { padding: 12px 0; color: #555; font-size: 16px; display: flex; justify-content: space-between; border-bottom: 1px dashed #e0f2f1; }
+        .rate-section li:last-child { border-bottom: none; }
+        .rate-section li strong { color: #00695c; font-size: 17px; font-weight: 800; }
         
-        /* Floating Buttons */
-        .floating-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 99; }
-        .float-btn { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 26px; box-shadow: 0 4px 20px rgba(0,0,0,0.25); transition: transform 0.2s; }
-        .float-btn:hover { transform: scale(1.1); }
-        .whatsapp { background: #25D366; color: white; }
-        .call { background: #5b4bdb; color: white; }
+        .cta-box { background: linear-gradient(135deg, #00acc1 0%, #00838f 100%); border-radius: 30px; padding: 50px 35px; text-align: center; color: white; margin: 50px 0; box-shadow: 0 15px 50px rgba(0,131,143,0.4); }
+        .cta-box h2 { font-size: 36px; margin-bottom: 18px; font-weight: 900; }
+        .cta-box p { margin-bottom: 28px; opacity: 0.95; font-size: 18px; line-height: 1.7; }
+        .cta-call { background: rgba(255,255,255,0.3); padding: 20px 35px; border-radius: 25px; display: inline-block; font-weight: 800; font-size: 22px; backdrop-filter: blur(15px); border: 2px solid rgba(255,255,255,0.5); }
+        .cta-call a { color: white; text-decoration: none; display: block; margin: 8px 0; }
 
-        .notes { background: #fff3cd; padding: 18px; border-radius: 15px; margin: 25px 0; border-left: 4px solid #ffc107; font-size: 14px; line-height: 1.6; }
-        .footer { background: #5b4bdb; color: white; text-align: center; padding: 40px 20px; margin-top: 50px; }
-        .footer h3 { font-size: 24px; margin-bottom: 10px; }
-        .footer p { margin: 8px 0; opacity: 0.9; }
+        .floating-btns { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 18px; z-index: 99; }
+        .float-btn { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 30px; box-shadow: 0 8px 30px rgba(0,0,0,0.35); transition: all 0.3s; }
+        .float-btn:hover { transform: scale(1.2) rotate(10deg); }
+        .whatsapp { background: #25D366; color: white; }
+        .call { background: #00695c; color: white; }
+
+        .notes { background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%); padding: 22px; border-radius: 20px; margin: 35px 0; border-left: 6px solid #fbc02d; font-size: 16px; line-height: 1.8; color: #e65100; font-weight: 700; }
+        .footer { background: linear-gradient(135deg, #00695c 0%, #004d40 100%); color: white; text-align: center; padding: 60px 20px; margin-top: 70px; }
+        .footer h3 { font-size: 30px; margin-bottom: 15px; font-weight: 900; }
+        .footer p { margin: 12px 0; opacity: 0.95; font-size: 17px; }
+        .footer a { color: #80deea; text-decoration: none; font-weight: 800; }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
         <div class="logo">
             <span class="logo-icon">🚖</span>
             <span>BALAJI TAXI SERVICE</span>
         </div>
-        <div class="menu">☰</div>
+        <a href="https://wa.me/9172943023" class="call-header">💬 WhatsApp</a>
     </div>
 
-    <!-- Hero -->
     <div class="hero">
         <h1>
-            <span class="orange">Your Trusted</span><br>
-            <span class="blue">Goa Cab</span> <span class="green">Service</span>
+            <span class="yellow">Your Trusted</span><br>
+            Goa Cab Service
         </h1>
-        <p>Experience the authentic spirit of Goa with Vinod Kumar. From pristine beaches to historic churches, we'll take you everywhere with a smile. WiFi Free 📶 | 24x7 Available</p>
+        <p>Experience authentic Goa with Vinod Kumar. 15+ years experience, 500+ happy tourists. From pristine beaches to historic churches - WiFi Free 📶 | 24x7 Available</p>
+        <div class="hero-contact">
+            <a href="tel:+9172943023">📞 9172943023</a>
+            <a href="tel:+917558719172">📞 7558719172</a>
+        </div>
+        <br>
         <a href="tel:+9172943023" class="btn btn-primary">Book Your Ride 🚖</a>
-        <a href="#rates" class="btn btn-secondary">View Rates 🌴</a>
+        <a href="https://wa.me/9172943023" class="btn btn-secondary">WhatsApp Now 💬</a>
     </div>
 
-    <!-- Our Fleet Gallery -->
     <div class="section">
-        <h2 class="section-title">🚗 Our Fleet Gallery 📸</h2>
-        <p class="section-subtitle">Take a look at our premium taxi fleet and see why customers trust us for their Goa travels</p>
-        
-        <div class="gallery-grid">
-            <div class="fleet-card">
-                <div class="fleet-img">🚗</div>
-                <div class="fleet-content">
-                    <p class="fleet-tag">Premium Fleet</p>
-                    <h4>Sedan - Dzire / Baleno</h4>
-                    <p>Comfortable 4+1 seater perfect for families & couples. AC, clean & sanitized.</p>
-                    <span class="wifi-badge">WiFi Free 📶</span>
+        <h2 class="section-title">🎯 Our Tour Packages 🌴</h2>
+        <p class="section-subtitle">Discover the best of Goa with our carefully crafted tour packages</p>
+
+        <div class="photo-grid">
+            <div class="photo-card">
+                <img src="wedding.jpg" alt="Wedding Transfer" class="photo-img">
+                <div class="photo-content">
+                    <p class="photo-tag">Special Occasion</p>
+                    <h3>Wedding Transfer</h3>
+                    <div class="photo-price">₹5000/day</div>
+                    <p class="photo-desc">Special occasion transportation with Goan blessings. Make your wedding day memorable.</p>
+                    <ul class="photo-features">
+                        <li>Best rates</li>
+                        <li>Special decoration</li>
+                        <li>Goan blessings</li>
+                    </ul>
+                    <a href="tel:+9172943023" class="photo-btn">📞 Book Now - 9172943023</a>
                 </div>
             </div>
 
-            <div class="fleet-card">
-                <div class="fleet-img">🚙</div>
-                <div class="fleet-content">
-                    <p class="fleet-tag">Family Choice</p>
-                    <h4>SUV - Maruti Ertiga</h4>
-                    <p>Spacious 6+1 seater ideal for groups. Extra luggage space for your Goa shopping.</p>
-                    <span class="wifi-badge">WiFi Free 📶</span>
+            <div class="photo-card">
+                <img src="south-goa.jpg" alt="South Goa Tour" class="photo-img">
+                <div class="photo-content">
+                    <p class="photo-tag">Beach Tour</p>
+                    <h3>South Goa Tour</h3>
+                    <div class="photo-price">₹2800</div>
+                    <p class="photo-desc">Peaceful beaches, heritage sites and Portuguese charm. Less crowded, more serene.</p>
+                    <ul class="photo-features">
+                        <li>Best rates</li>
+                        <li>Heritage sites</li>
+                        <li>Peaceful beaches</li>
+                    </ul>
+                    <a href="tel:+9172943023" class="photo-btn">📞 Book Now - 9172943023</a>
                 </div>
             </div>
 
-            <div class="fleet-card">
-                <div class="fleet-img">🌙</div>
-                <div class="fleet-content">
-                    <p class="fleet-tag">Night Service</p>
-                    <h4>24x7 Available</h4>
-                    <p>Late night airport pickup/drop? No problem. Safe & reliable service always.</p>
-                    <span class="wifi-badge">WiFi Free 📶</span>
+            <div class="photo-card">
+                <img src="night-tour.jpg" alt="Night Tours" class="photo-img">
+                <div class="photo-content">
+                    <p class="photo-tag">Evening Service</p>
+                    <h3>Night Tours</h3>
+                    <div class="photo-price">₹2200</div>
+                    <p class="photo-desc">Safe night travel with experienced local Goan driver. Explore nightlife safely.</p>
+                    <ul class="photo-features">
+                        <li>Best rates</li>
+                        <li>Safe travel</li>
+                        <li>Night life spots</li>
+                    </ul>
+                    <a href="tel:+9172943023" class="photo-btn">📞 Book Now - 9172943023</a>
                 </div>
             </div>
 
-            <div class="fleet-card">
-                <div class="fleet-img">🏛️</div>
-                <div class="fleet-content">
-                    <p class="fleet-tag">Temple Tours</p>
-                    <h4>Innova / Crysta Premium</h4>
-                    <p>Luxury 6+1 seater for heritage & temple tours. Best comfort for long rides.</p>
-                    <span class="wifi-badge">WiFi Free 📶</span>
+            <div class="photo-card">
+                <img src="north-goa.jpg" alt="North Goa Beach Tour" class="photo-img">
+                <div class="photo-content">
+                    <p class="photo-tag">Full Day Tour</p>
+                    <h3>North Goa Beach Tour</h3>
+                    <div class="photo-price">₹3500</div>
+                    <p class="photo-desc">Explore the most popular beaches of North Goa, visit historical forts and enjoy water sports.</p>
+                    <ul class="photo-features">
+                        <li>Calangute Beach</li>
+                        <li>Baga Beach</li>
+                        <li>Anjuna Beach</li>
+                        <li>+2 more</li>
+                    </ul>
+                    <a href="tel:+9172943023" class="photo-btn">📞 Book Now - 9172943023</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Tour Packages -->
-    <div class="section">
-        <h2 class="section-title">🌴 Popular Tour Packages</h2>
-        <p class="section-subtitle">Choose from our curated Goa experiences with fixed rates</p>
-
-        <div class="tour-grid">
-            <div class="tour-card">
-                <div class="tour-header blue">
-                    <div class="tour-icon">🏛️</div>
-                    <div class="tour-price">₹3000</div>
-                    <div class="tour-hours">Half Day (5 Hours)</div>
-                    <h3>Goa Heritage Tour</h3>
-                </div>
-                <div class="tour-body">
-                    <p>Explore Goa's rich cultural heritage, including UNESCO world heritage sites and historic churches.</p>
-                    <div class="tour-destinations">
-                        <h5>Destinations:</h5>
-                        <ul>
-                            <li>Old Goa Churches</li>
-                            <li>Shanta Durga Temple</li>
-                            <li>Mangueshi Temple</li>
-                            <li>+2 more</li>
-                        </ul>
-                    </div>
-                    <a href="tel:+9172943023" class="tour-btn">📞 Book Now</a>
-                    <a href="#rates" class="details-btn">Details</a>
-                </div>
-            </div>
-
-            <div class="tour-card">
-                <div class="tour-header green">
-                    <div class="tour-icon">💧</div>
-                    <div class="tour-price">₹5000</div>
-                    <div class="tour-hours">Full Day (10 Hours)</div>
-                    <h3>Dudhsagar Waterfall Trip</h3>
-                </div>
-                <div class="tour-body">
-                    <p>Visit one of India's tallest waterfalls, take a jeep safari through the jungle and enjoy a spice plantation tour.</p>
-                    <div class="tour-destinations">
-                        <h5>Destinations:</h5>
-                        <ul>
-                            <li>Dudhsagar Waterfalls</li>
-                            <li>Bhagwan Mahavir Wildlife Sanctuary</li>
-                            <li>Mollem National Park</li>
-                            <li>+1 more</li>
-                        </ul>
-                    </div>
-                    <a href="tel:+9172943023" class="tour-btn green">📞 Book Now</a>
-                    <a href="#rates" class="details-btn">Details</a>
-                </div>
-            </div>
-
-            <div class="tour-card">
-                <div class="tour-header orange">
-                    <div class="tour-icon">🍛</div>
-                    <div class="tour-price">₹3200</div>
-                    <div class="tour-hours">Half Day (6 Hours)</div>
-                    <h3>Goan Cuisine & Culture Tour</h3>
-                </div>
-                <div class="tour-body">
-                    <p>Immerse yourself in the local cuisine and culture, taste authentic Goan food and drinks.</p>
-                    <div class="tour-destinations">
-                        <h5>Destinations:</h5>
-                        <ul>
-                            <li>Local Markets</li>
-                            <li>Spice Farm</li>
-                            <li>Goan Restaurant</li>
-                            <li>+2 more</li>
-                        </ul>
-                    </div>
-                    <a href="tel:+9172943023" class="tour-btn orange">📞 Book Now</a>
-                    <a href="#rates" class="details-btn">Details</a>
-                </div>
-            </div>
-
-            <div class="tour-card">
-                <div class="tour-header teal">
-                    <div class="tour-icon">🏝️</div>
-                    <div class="tour-price">₹3800</div>
-                    <div class="tour-hours">Full Day (7 Hours)</div>
-                    <h3>Island Exploration Tour</h3>
-                </div>
-                <div class="tour-body">
-                    <p>Explore the beautiful islands around Goa, enjoy snorkeling, dolphin watching and island hopping.</p>
-                    <div class="tour-destinations">
-                        <h5>Destinations:</h5>
-                        <ul>
-                            <li>Grande Island</li>
-                            <li>Bat Island</li>
-                            <li>Chorao Island</li>
-                            <li>+2 more</li>
-                        </ul>
-                    </div>
-                    <a href="tel:+9172943023" class="tour-btn teal">📞 Book Now</a>
-                    <a href="#rates" class="details-btn">Details</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Rates Section -->
     <div class="section" id="rates">
         <h2 class="section-title">📋 Our Taxi Rates</h2>
-        <p class="section-subtitle">Transparent pricing for all your Goa travel needs</p>
+        <p class="section-subtitle">Transparent pricing for all your Goa travel needs - Dabolim & Mopa Airport</p>
         
-        <!-- Sedan -->
         <div class="rate-card">
-            <span class="car-badge">4+1 Seater | WiFi Free 📶</span>
+            <span class="car-badge">4+1 Seater</span>
+            <span class="wifi-badge">WiFi Free 📶</span>
             <h3>🚗 Sedan - Dzire / Baleno</h3>
             <div class="rate-section">
                 <h4>Tour Package:</h4>
@@ -287,13 +227,95 @@
             </div>
         </div>
 
-        <!-- Ertiga -->
         <div class="rate-card">
-            <span class="car-badge">6+1 Seater | WiFi Free 📶</span>
+            <span class="car-badge">6+1 Seater</span>
+            <span class="wifi-badge">WiFi Free 📶</span>
             <h3>🚙 SUV - Maruti Ertiga</h3>
             <div class="rate-section">
                 <h4>Tour Package:</h4>
                 <ul>
                     <li><span>4 Hrs / 40 Km</span> <strong>₹2200</strong></li>
                     <li><span>8 Hrs / 80 Km</span> <strong>₹3000</strong></li>
-                    <li><span>Extra</span> <strong>₹20/km | ₹200/hr
+                    <li><span>Extra</span> <strong>₹20/km | ₹200/hr</strong></li>
+                    <li><span>Night Charge after 11 PM</span> <strong>₹500</strong></li>
+                </ul>
+            </div>
+            <div class="rate-section">
+                <h4>Dabolim Airport Transfer:</h4>
+                <ul>
+                    <li><span>→ Calangute / Baga / Anjuna / Arpora</span> <strong>₹1650</strong></li>
+                    <li><span>→ Siolim / Morjim / Arambol</span> <strong>₹2250</strong></li>
+                </ul>
+            </div>
+            <div class="rate-section">
+                <h4>Mopa Airport Transfer:</h4>
+                <ul>
+                    <li><span>→ Vasco da Gama / Dabolim Airport</span> <strong>₹3200</strong></li>
+                    <li><span>→ Colva / Benaulim / Varca / Cavelossim</span> <strong>₹3650</strong></li>
+                    <li><span>→ Palolem / Agonda Beach</span> <strong>₹5500</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rate-card">
+            <span class="car-badge">6+1 Seater Premium</span>
+            <span class="wifi-badge">WiFi Free 📶</span>
+            <h3>🚐 MUV - Innova / Crysta</h3>
+            <div class="rate-section">
+                <h4>Tour Package:</h4>
+                <ul>
+                    <li><span>4 Hours / 40 Km</span> <strong>₹2500</strong></li>
+                    <li><span>8 Hours / 80 Km</span> <strong>₹3500</strong></li>
+                    <li><span>Extra</span> <strong>₹25/km | ₹250/hr</strong></li>
+                    <li><span>Night Charge after 11 PM</span> <strong>₹500</strong></li>
+                </ul>
+            </div>
+            <div class="rate-section">
+                <h4>Dabolim Airport Transfer:</h4>
+                <ul>
+                    <li><span>→ Calangute / Baga / Anjuna / Vagator</span> <strong>₹2450</strong></li>
+                    <li><span>→ Siolim / Morjim / Arambol</span> <strong>₹3250</strong></li>
+                </ul>
+            </div>
+            <div class="rate-section">
+                <h4>Mopa Airport Transfer:</h4>
+                <ul>
+                    <li><span>→ Vasco / Dabolim Airport</span> <strong>₹3800</strong></li>
+                    <li><span>→ Colva / Benaulim / Varca / Cavelossim</span> <strong>₹4200</strong></li>
+                    <li><span>→ Palolem / Agonda Beach</span> <strong>₹6500</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="notes">
+            <strong>Important:</strong> All rates inclusive of Driver + Fuel. Toll Tax, Parking & Interstate Permit Extra. WiFi Free in all vehicles 📶 | 15+ Years Experience | Call: 9172943023 / 7558719172
+        </div>
+
+        <div class="cta-box">
+            <h2>Ready to Explore Goa? 🗺️</h2>
+            <p>Call Vinod Kumar now for instant booking with authentic Goan hospitality</p>
+            <div class="cta-call">
+                <a href="tel:+9172943023">📞 9172943023</a>
+                <a href="tel:+917558719172">📞 7558719172</a>
+                <a href="https://wa.me/9172943023">💬 WhatsApp: 9172943023</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="floating-btns">
+        <a href="https://wa.me/9172943023" class="float-btn whatsapp">💬</a>
+        <a href="tel:+9172943023" class="float-btn call">📞</a>
+    </div>
+
+    <div class="footer">
+        <h3>🚖 BALAJI TAXI SERVICE - GOA</h3>
+        <p>Vinod Kumar | Reliable | Affordable | 24x7 Available | WiFi Free 📶</p>
+        <p style="margin-top: 15px;">
+            <a href="tel:+9172943023">📞 9172943023</a> | 
+            <a href="tel:+917558719172">📞 7558719172</a> | 
+            <a href="https://wa.me/9172943023">💬 WhatsApp</a>
+        </p>
+        <p style="margin-top: 20px; font-size: 13px; opacity: 0.8;">© 2026 Balaji Taxi Service Goa. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
